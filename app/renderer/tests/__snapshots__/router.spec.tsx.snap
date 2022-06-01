@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`route / 1`] = `
+<div
+  style={
+    Object {
+      "marginTop": 100,
+      "textAlign": "center",
+    }
+  }
+>
+  <h3>
+    <a
+      href="/importer"
+      id="tune-importer"
+      onClick={[Function]}
+    >
+      Tune Importer
+    </a>
+  </h3>
+</div>
+`;
+
+exports[`route /dummy 1`] = `
+<h1>
+  204 No Content
+</h1>
+`;
+
+exports[`route /importer 1`] = `
+<div
+  style={
+    Object {
+      "marginTop": 100,
+      "textAlign": "center",
+    }
+  }
+>
+  <h1>
+    Tune List
+  </h1>
+  <h3>
+    <a
+      href="/"
+      onClick={[Function]}
+    >
+      Back
+    </a>
+  </h3>
+</div>
+`;

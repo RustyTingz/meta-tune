@@ -1,0 +1,119 @@
+{
+  "name": "metatune",
+  "version": "0.11.2",
+  "description": "Song meta data editor and uploader",
+  "author": "RustyTingz",
+  "license": "MIT",
+  "main": "dist/backend/main.js",
+  "targets": {
+    "frontend": {
+      "source": "app/renderer/index.html",
+      "context": "browser",
+      "publicUrl": "./"
+    },
+    "backend": {
+      "source": "app/main/main.ts",
+      "context": "electron-main"
+    }
+  },
+  "scripts": {
+    "dev": "run-s build serve",
+    "lint": "eslint \"app/**/*.{js,jsx,ts,tsx}\"",
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
+    "build": "parcel build",
+    "release": "electron-builder --x64 --publish=never",
+    "clean": "rimraf dist",
+    "serve": "run-p f:serve e:start -r",
+    "f:serve": "parcel serve --target frontend --port 1124",
+    "e:start": "electron ."
+  },
+  "build": {
+    "productName": "MetaTune",
+    "appId": "com.electron.MetaTune",
+    "files": [
+      "dist"
+    ],
+    "mac": {
+      "target": [
+        "zip"
+      ],
+      "artifactName": "${productName}-mac.${ext}"
+    },
+    "win": {
+      "target": [
+        "zip"
+      ],
+      "artifactName": "${productName}-win.${ext}"
+    },
+    "linux": {
+      "target": [
+        "zip"
+      ],
+      "category": "Development",
+      "artifactName": "${productName}-linux.${ext}"
+    },
+    "directories": {
+      "output": "release"
+    }
+  },
+  "jest": {
+    "verbose": true,
+    "collectCoverageFrom": [
+      "app/renderer/**",
+      "!app/renderer/index.tsx",
+      "!app/renderer/tests/**",
+      "!app/renderer/.parcel/**"
+    ],
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "babel-jest"
+    },
+    "extensionsToTreatAsEsm": [
+      ".ts",
+      ".tsx"
+    ],
+    "testEnvironment": "jsdom",
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.12",
+    "@babel/preset-react": "^7.16.7",
+    "@babel/preset-typescript": "^7.16.7",
+    "@jest/globals": "^27.4.6",
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "@types/jest": "^27.4.0",
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.10.1",
+    "@typescript-eslint/parser": "^5.10.1",
+    "asar": "^3.1.0",
+    "cross-env": "^7.0.3",
+    "electron": "^16.0.8",
+    "electron-builder": "^22.14.13",
+    "eslint": "^8.8.0",
+    "eslint-plugin-jest": "^26.0.0",
+    "eslint-plugin-testing-library": "^5.0.4",
+    "jest": "^27.4.7",
+    "npm-run-all": "^4.1.5",
+    "parcel": "^2.2.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.2.1",
+    "react-test-renderer": "^17.0.2",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "app-root-path": "^3.0.0",
+    "electron-is-dev": "^2.0.0"
+  },
+  "packageManager": "yarn@3.1.1"
+}

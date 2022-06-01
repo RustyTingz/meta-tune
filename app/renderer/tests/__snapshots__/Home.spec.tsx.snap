@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`page Root 1`] = `
+<div
+  style={
+    Object {
+      "marginTop": 100,
+      "textAlign": "center",
+    }
+  }
+>
+  <h3>
+    <a
+      href="/importer"
+      id="tune-importer"
+      onClick={[Function]}
+    >
+      Tune Importer
+    </a>
+  </h3>
+</div>
+`;
